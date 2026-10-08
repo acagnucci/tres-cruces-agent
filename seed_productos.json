@@ -1,0 +1,195 @@
+{
+  "_nota": "DATOS DE PRUEBA. Precios aproximados de Bucaramanga, no verificados. Reemplazar con el catálogo real del negocio cuando esté disponible.",
+  "negocio": {
+    "nombre": "Avícola Las Tres Cruces",
+    "ciudad": "Bucaramanga, Santander",
+    "direccion": "DEMO - pendiente confirmar con el dueño",
+    "horario": "DEMO - Lunes a sábado 7:00 a.m. a 7:00 p.m., domingos 7:00 a.m. a 1:00 p.m.",
+    "domicilio": {
+      "disponible": true,
+      "zonas": ["Bucaramanga", "Floridablanca", "Girón", "Piedecuesta"],
+      "costo": 5000,
+      "tiempo_estimado": "45 a 60 minutos"
+    },
+    "pago": ["efectivo contra entrega", "Nequi contra entrega"],
+    "datos_demo": true
+  },
+  "productos": [
+    {
+      "id": "pollo-campesino",
+      "nombre": "Pollo campesino entero",
+      "categoria": "avicola",
+      "presentacion": "unidad de aprox. 2 kg",
+      "unidad": "unidad",
+      "precio": 42000,
+      "stock": 12,
+      "alias": ["pollo", "pollo entero", "pollo campesino", "gallina"],
+      "descripcion": "Pollo criado en finca, carne más firme y con más sabor que el de galpón."
+    },
+    {
+      "id": "pechuga-libra",
+      "nombre": "Pechuga de pollo",
+      "categoria": "avicola",
+      "presentacion": "libra",
+      "unidad": "libra",
+      "precio": 11000,
+      "stock": 30,
+      "alias": ["pechuga", "pechugas"],
+      "descripcion": "Pechuga fresca, se vende por libra."
+    },
+    {
+      "id": "huevos-criollos-docena",
+      "nombre": "Huevos criollos",
+      "categoria": "avicola",
+      "presentacion": "docena",
+      "unidad": "docena",
+      "precio": 15000,
+      "stock": 20,
+      "alias": ["huevos criollos", "huevo criollo", "huevos de campo"],
+      "descripcion": "Huevo de gallina criolla, yema más anaranjada."
+    },
+    {
+      "id": "huevos-aa-cubeta",
+      "nombre": "Huevos AA",
+      "categoria": "avicola",
+      "presentacion": "cubeta de 30",
+      "unidad": "cubeta",
+      "precio": 21000,
+      "stock": 15,
+      "alias": ["huevos", "huevos AA", "cubeta de huevos", "panal de huevos"],
+      "descripcion": "Huevo rojo AA en cubeta de 30."
+    },
+    {
+      "id": "gallina-criolla",
+      "nombre": "Gallina criolla",
+      "categoria": "avicola",
+      "presentacion": "unidad",
+      "unidad": "unidad",
+      "precio": 55000,
+      "stock": 0,
+      "alias": ["gallina criolla", "gallina de campo"],
+      "descripcion": "Gallina criolla para sancocho o sudado. Sobre pedido, se consigue en 2 días."
+    },
+    {
+      "id": "hormigas-culonas-100g",
+      "nombre": "Hormigas culonas",
+      "categoria": "tipicos",
+      "presentacion": "frasco de 100 g",
+      "unidad": "frasco",
+      "precio": 45000,
+      "stock": 3,
+      "alias": ["hormigas", "hormiga culona", "culonas"],
+      "descripcion": "Hormigas culonas tostadas con sal, el manjar santandereano. Son de temporada (marzo a mayo), quedan pocas."
+    },
+    {
+      "id": "bocadillo-veleno-caja",
+      "nombre": "Bocadillo veleño",
+      "categoria": "tipicos",
+      "presentacion": "caja de 24 unidades en hoja de bijao",
+      "unidad": "caja",
+      "precio": 14000,
+      "stock": 25,
+      "alias": ["bocadillo", "bocadillos", "bocadillo de guayaba", "veleño"],
+      "descripcion": "Bocadillo de guayaba de Vélez, envuelto en hoja de bijao. Va perfecto con queso."
+    },
+    {
+      "id": "carne-oreada-libra",
+      "nombre": "Carne oreada",
+      "categoria": "tipicos",
+      "presentacion": "libra",
+      "unidad": "libra",
+      "precio": 32000,
+      "stock": 10,
+      "alias": ["carne oreada", "oreada", "carne seca"],
+      "descripcion": "Carne de res adobada y secada al sol, se asa a la brasa. Clásico santandereano."
+    },
+    {
+      "id": "chorizo-santandereano-x6",
+      "nombre": "Chorizo santandereano",
+      "categoria": "tipicos",
+      "presentacion": "paquete de 6",
+      "unidad": "paquete",
+      "precio": 18000,
+      "stock": 14,
+      "alias": ["chorizo", "chorizos"],
+      "descripcion": "Chorizo artesanal de cerdo, para asar."
+    },
+    {
+      "id": "arepa-santandereana-x5",
+      "nombre": "Arepa santandereana",
+      "categoria": "tipicos",
+      "presentacion": "paquete de 5",
+      "unidad": "paquete",
+      "precio": 12000,
+      "stock": 20,
+      "alias": ["arepa", "arepas", "arepa de maíz pelao", "arepa con chicharrón"],
+      "descripcion": "Arepa de maíz pelao con chicharrón, asada en tiesto. La de verdad."
+    },
+    {
+      "id": "tamal-santandereano",
+      "nombre": "Tamal santandereano",
+      "categoria": "tipicos",
+      "presentacion": "unidad",
+      "unidad": "unidad",
+      "precio": 10000,
+      "stock": 8,
+      "alias": ["tamal", "tamales"],
+      "descripcion": "Tamal de maíz con pollo, cerdo, garbanzo y huevo, envuelto en hoja de plátano."
+    },
+    {
+      "id": "mantecada-x6",
+      "nombre": "Mantecada santandereana",
+      "categoria": "tipicos",
+      "presentacion": "paquete de 6",
+      "unidad": "paquete",
+      "precio": 9000,
+      "stock": 10,
+      "alias": ["mantecada", "mantecadas"],
+      "descripcion": "Mantecada de maíz, para el tinto o el chocolate."
+    },
+    {
+      "id": "obleas-floridablanca-x10",
+      "nombre": "Obleas de Floridablanca",
+      "categoria": "tipicos",
+      "presentacion": "paquete de 10 obleas con arequipe",
+      "unidad": "paquete",
+      "precio": 7000,
+      "stock": 12,
+      "alias": ["obleas", "oblea"],
+      "descripcion": "Obleas delgaditas con arequipe, de Floridablanca."
+    },
+    {
+      "id": "masato-litro",
+      "nombre": "Masato",
+      "categoria": "tipicos",
+      "presentacion": "botella de 1 litro",
+      "unidad": "botella",
+      "precio": 8000,
+      "stock": 6,
+      "alias": ["masato"],
+      "descripcion": "Masato de arroz fermentado, bien frío. Se vence rápido, pídalo para el mismo día."
+    },
+    {
+      "id": "chocolate-santandereano-250g",
+      "nombre": "Chocolate de mesa santandereano",
+      "categoria": "tipicos",
+      "presentacion": "barra de 250 g",
+      "unidad": "barra",
+      "precio": 9000,
+      "stock": 18,
+      "alias": ["chocolate", "chocolate de mesa", "cacao"],
+      "descripcion": "Chocolate de mesa con cacao de San Vicente de Chucurí."
+    },
+    {
+      "id": "cafe-santander-libra",
+      "nombre": "Café de Santander",
+      "categoria": "tipicos",
+      "presentacion": "libra, tostado y molido",
+      "unidad": "libra",
+      "precio": 28000,
+      "stock": 9,
+      "alias": ["café", "cafe", "tinto"],
+      "descripcion": "Café de origen Santander, tostado medio, molido."
+    }
+  ]
+}
