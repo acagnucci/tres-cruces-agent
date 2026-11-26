@@ -1,0 +1,75 @@
+{
+  "_nota": "Webhook tools del agente (formato de la API de ElevenAgents). El header X-API-Key se resuelve desde un secret del workspace llamado tres_cruces_api_key; su valor no está en el repo. BACKEND_URL es el dominio público del backend.",
+  "tools": [
+    {
+      "type": "webhook",
+      "name": "consultar_catalogo",
+      "description": "Busca productos del catálogo con precio, unidad y stock disponible. Llámala antes de mencionar cualquier producto, precio o disponibilidad. Sin el parámetro q devuelve el catálogo completo.",
+      "response_timeout_secs": 20,
+      "api_schema": {
+        "url": "https://BACKEND_URL/api/productos",
+        "method": "GET",
+        "request_headers": {"X-API-Key": {"secret": "tres_cruces_api_key"}},
+        "query_params_schema": {
+          "properties": {
+            "q": {
+              "type": "string",
+              "description": "Palabra para buscar el producto, por ejemplo \"huevos\", \"pollo\" o \"hormigas\". Una sola palabra en singular. Omítelo para ver todo el catálogo."
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    {
+      "type": "webhook",
+      "name": "crear_pedido",
+      "description": "Crea el pedido y descuenta el inventario. Llámala una sola vez por pedido y solo después de que el cliente confirme el resumen completo. Devuelve número de pedido, total y tiempo estimado. Si responde error 409 es por falta de existencias y el campo problemas dice qué producto y cuánto hay disponible.",
+      "response_timeout_secs": 20,
+      "api_schema": {
+        "url": "https://BACKEND_URL/api/pedidos",
+        "method": "POST",
+        "request_headers": {"X-API-Key": {"secret": "tres_cruces_api_key"}},
+        "request_body_schema": {
+          "type": "object",
+          "description": "Datos del pedido confirmado por el cliente.",
+          "required": ["cliente", "telefono", "modalidad", "items"],
+          "properties": {
+            "cliente": {"type": "string", "description": "Nombre cliente"},
+            "telefono": {"type": "string", "description": "Celular de 10 dígitos, solo números, sin espacios."},
+            "modalidad": {"type": "string", "enum": ["domicilio", "recoger"], "description": "Exactamente \"domicilio\" o \"recoger\"."},
+            "direccion": {"type": "string", "description": "Dirección completa con barrio. Obligatoria si la modalidad es domicilio."},
+            "notas": {"type": "string", "description": "Indicaciones del cliente, por ejemplo “el timbre no sirve”. Vacío si no hay."},
+            "items": {
+              "type": "array",
+              "description": "Productos del pedido.",
+              "items": {
+                "type": "object",
+                "description": "Un producto del pedido.",
+                "required": ["producto_id", "cantidad"],
+                "properties": {
+                  "producto_id": {"type": "string", "description": "El id exacto que devolvió consultar_catalogo, por ejemplo \"pollo-campesino\"."},
+                  "cantidad": {"type": "integer", "description": "Cantidad en la unidad del producto, mínimo 1."}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "webhook",
+      "name": "consultar_pedido",
+      "description": "Devuelve el estado, los ítems y el total de un pedido existente a partir de su número.",
+      "response_timeout_secs": 20,
+      "api_schema": {
+        "url": "https://BACKEND_URL/api/pedidos/{numero}",
+        "method": "GET",
+        "request_headers": {"X-API-Key": {"secret": "tres_cruces_api_key"}},
+        "path_params_schema": {
+          "numero": {"type": "string", "description": "Número de pedido con formato TC-0001."}
+        }
+      }
+    }
+  ]
+}

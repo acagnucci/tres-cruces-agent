@@ -1,0 +1,75 @@
+{
+  "_nota": "Exportado a mano desde ElevenAgents (rama main) el 26 nov 2026. Solo los campos relevantes. El system prompt completo está en system_prompt.md y las tools en tools/. Los secretos se referencian por nombre; ningún valor real está en el repo.",
+  "agent_id": "agent_7201m4h8sssbf2na0f8w29fbvwrb",
+  "name": "Sofía · Avícola Las Tres Cruces",
+  "conversation_config": {
+    "agent": {
+      "first_message": "¡Hola, buenas! Hablas con Sofía, de la Avícola Las Tres Cruces. ¿Qué deseas ordenar?",
+      "language": "es",
+      "prompt": {
+        "prompt": "<ver system_prompt.md>",
+        "llm": "claude-sonnet-5-5",
+        "temperature": 0.5,
+        "reasoning_effort": "medium",
+        "enable_prompt_caching": true,
+        "timezone": "America/Bogota",
+        "tools": ["consultar_catalogo", "crear_pedido", "consultar_pedido"],
+        "built_in_tools": ["end_call"]
+      }
+    },
+    "tts": {
+      "model_id": "eleven_v4_turbo",
+      "voice_id": "b2htR0pMe28pYwCY9gnP",
+      "expressive_mode": true,
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "speed": 1.0,
+      "optimize_streaming_latency": 3
+    },
+    "asr": {
+      "provider": "scribe_realtime",
+      "quality": "high"
+    },
+    "turn": {
+      "turn_model": "turn_v3",
+      "turn_eagerness": "normal",
+      "spelling_patience": "auto",
+      "speculative_turn": true,
+      "turn_timeout": 7.0,
+      "silence_end_call_timeout": 30.0,
+      "soft_timeout_config": {
+        "timeout_seconds": 2.5,
+        "message": "Un momentico, ya le confirmo.",
+        "additional_soft_timeout_messages": ["Listo, deme un momentico.", "Ya casi le confirmo."],
+        "randomize_fillers": true,
+        "max_soft_timeouts_per_generation": 3,
+        "disable_until_first_user_message": true
+      }
+    },
+    "conversation": {
+      "max_duration_seconds": 600
+    }
+  },
+  "platform_settings": {
+    "summary_language": "es",
+    "evaluation": {
+      "criteria": [
+        {
+          "id": "pedido_confirmado_antes_de_crear",
+          "name": "Confirmó antes de crear el pedido",
+          "conversation_goal_prompt": "Si en la conversación se creó un pedido con la herramienta crear_pedido, verifica que antes de crearlo la agente repitió el resumen completo (productos, cantidades, modalidad y total) y el cliente dijo que sí de forma explícita. Si no se creó ningún pedido, el resultado es desconocido."
+        },
+        {
+          "id": "precios_del_catalogo",
+          "name": "Precios y existencias del catálogo",
+          "conversation_goal_prompt": "Verifica que todos los precios, productos y existencias que la agente mencionó salen de los resultados de la herramienta consultar_catalogo y que no inventó ninguno. Falla si menciona un precio o producto que no aparece en los resultados de la herramienta."
+        }
+      ]
+    },
+    "data_collection": {
+      "numero_pedido": {"type": "string", "description": "Número del pedido creado en la conversación, con formato TC-0001. Vacío si no se creó pedido."},
+      "total_pedido": {"type": "integer", "description": "Total del pedido creado en pesos colombianos, como número entero sin puntos. Vacío si no se creó pedido."},
+      "modalidad": {"type": "string", "enum": ["domicilio", "recoger"], "description": "Modalidad del pedido creado: domicilio o recoger."}
+    }
+  }
+}

@@ -22,6 +22,8 @@ app/admin.py       /admin (HTML), /admin/data, /admin/reset-ui (sin API key)
 app/static/admin.html
 seed_productos.json
 tests/test_api.py
+agent/             config exportada del agente de ElevenAgents (prompt, tools, tests). Si cambias
+                   el agente en la plataforma, actualiza estos archivos. Nunca pongas valores de secretos.
 ```
 
 ## Cómo correr
