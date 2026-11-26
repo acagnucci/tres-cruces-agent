@@ -4,6 +4,7 @@ Agente de voz y chat en español colombiano que atiende a los clientes de una av
 
 Es un prototipo para el negocio real de un amigo. **Todos los datos son de prueba**: productos y precios aproximados de Bucaramanga, y dirección y horario provisionales hasta tener los reales.
 
+- **Video demo (90 s):** <https://youtu.be/Dbhbu4CBeDc>
 - **Probar el agente:** <https://elevenlabs.io/app/talk-to?agent_id=agent_7201m4h8sssbf2na0f8w29fbvwrb>
 - **Ver el inventario y los pedidos en vivo:** <https://web-production-2c721.up.railway.app/admin>
 
